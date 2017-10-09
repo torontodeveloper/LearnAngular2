@@ -1,0 +1,18 @@
+<form #f="ngForm" novalidate>
+<div class="container">
+      <h1>Angular 2 Application</h1>
+
+      <select name="" id="" (change)="onSelectChange($event)">
+            <option *ngFor="let x of deskType"value="{{x}}">{{x}}</option>
+      </select>
+      <span> You have selected 
+            {{selectedDesk}}
+      </span>
+
+     <br>
+     <hr/>
+      <select name="" id="">
+          <option *ngFor="let x of data"value="">{{x}}</option>
+      </select>
+</div>
+</form>

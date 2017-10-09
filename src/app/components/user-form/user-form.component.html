@@ -1,0 +1,63 @@
+<form #login="ngForm" (ngsubmit)="submit()" >
+<div class="form-group" [ngClass]="{'has-error':email-invalid}">
+<div class="has-error">
+<label for="name">Name</label><br>
+<input type="text" 
+required class="alert alert-danger"
+id="name"
+#name="ngModel"
+name="name"
+required
+minlength="3"
+[(ngModel)]="user.name"
+placeholder="Dr IQ"><br>
+<span class="help-block">Please enter valid Name</span>
+  </div>
+<div>
+Enter Email <input type="text"
+  required
+  name="email"
+  pattern="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]"
+  #emailRef="ngModel"
+  [(ngModel)]="email"
+><br>
+<span class="help-block">Please enter valid Email</span>
+</div>
+<div class="error">
+  <label for="alterEgo">Alter Ego</label><br>
+<input type="text"
+  required
+  id="alterEgo"
+  #alterEgo="ngModel"
+  name="alterEgo" 
+  minlength="4"
+  [(ngModel)]="user.alterAgo"
+  placeholder="Chuck Overstreet"><br>
+  <span class="help-block">Please enter valid Name</span>
+  
+</div>
+<div class="error">
+<label for="heroPower">Hero Power</label><br>
+<input 
+type="text"
+ required
+ id="heroPower"
+ name="herPower"
+ minlength="5"
+ #heroPower="ngModel"
+ [(ngModel)]="user.heroPower"
+ placeholder="Really Smart"><br>
+<span class="help-block">Please enter valid Name</span>
+</div>
+<button type="submit">Submit</button>
+</div>
+</form>
+
+Is Form Valid: {{login.valid}} <br>
+
+Name valid {{name.valid}}<br>
+
+Email valid {{emailRef.valid}}<br>
+alterEgo valid {{alterEgo.valid}} <br>
+
+heroPower valid {{heroPower.valid}}
