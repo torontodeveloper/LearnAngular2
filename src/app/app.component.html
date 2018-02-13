@@ -1,18 +1,13 @@
-<form #f="ngForm" novalidate>
 <div class="container">
-      <h1>Angular 2 Application</h1>
-
-      <select name="" id="" (change)="onSelectChange($event)">
-            <option *ngFor="let x of deskType"value="{{x}}">{{x}}</option>
-      </select>
-      <span> You have selected 
-            {{selectedDesk}}
-      </span>
-
-     <br>
-     <hr/>
-      <select name="" id="">
-          <option *ngFor="let x of data"value="">{{x}}</option>
-      </select>
+<form #myForm="ngForm" (ngSubmit)="onSave(myForm.value)" novalidate>
+<div class="form-group" [class.has-error]="firstNameVar.invalid && firstNameVar.touched">
+      <label class="control-label" for="firstName">First Name</label>
+      <input type="text" required pattern="[A-Za-z]*" class="form-control" id="firstName" #firstNameVar="ngModel" name="firstName" [(ngModel)]="firstName"> <br>
+      
+<div *ngIf="firstNameVar.invalid && firstNameVar.touched" class="alert alert-danger">
+First Name is required
 </div>
+</div>
+<button type="submit">Submit</button>
 </form>
+</div>

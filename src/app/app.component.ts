@@ -45,5 +45,8 @@ export class AppComponent {
     // this.data = data[event.target.value];
   }
 
+  onSave(formValue:any){
+    alert(formValue.toString());
+  }
 
 }
